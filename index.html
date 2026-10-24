@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05040a"><title>Un pedacito de mi mundo · Amor ebbe 💗</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;background:#05040a;color:#fff;font-family:Arial,Helvetica,sans-serif}body{overflow:hidden}
+#matrix{position:fixed;inset:0;background:#05040a;overflow:hidden;z-index:0}
+.codecol{position:absolute;top:-110%;color:#ff238e;font:12px/1.18 monospace;white-space:pre;opacity:.85;text-shadow:0 0 7px #ff1684;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(230vh)}}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;text-align:center;z-index:2;transition:opacity .5s}
+.hidden{display:none!important}
+.count{font-size:clamp(5rem,22vw,10rem);font-weight:900;color:#ff319b;text-shadow:0 0 8px #ff319b,0 0 30px #ff319b;animation:pulse .65s infinite alternate}
+@keyframes pulse{to{transform:scale(1.07)}}
+.word{font-size:clamp(1.7rem,7vw,4rem);font-weight:900;letter-spacing:.05em;color:#ff4ca8;text-shadow:0 0 7px #ff1684,0 0 25px #ff1684}
+button{font-size:1rem;color:#ffd7ea;background:#21091a;border:1px solid #ff4ca8;padding:13px 22px;border-radius:6px;box-shadow:0 0 18px #ff168455;cursor:pointer}
+#start{position:relative;z-index:5}
+.heart{font-size:clamp(5rem,20vw,9rem);filter:drop-shadow(0 0 20px #ff1684);animation:beat 1s infinite alternate}
+@keyframes beat{to{transform:scale(1.12)}}
+#space{background:radial-gradient(ellipse at center,#101328,#03040a 75%)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,white 60%,transparent),radial-gradient(1px 1px at 30% 70%,#ffb5d8 60%,transparent),radial-gradient(2px 2px at 70% 30%,white 60%,transparent),radial-gradient(1px 1px at 85% 80%,white 60%,transparent);background-size:140px 130px;animation:twinkle 3s alternate infinite}
+@keyframes twinkle{to{opacity:.35}}
+.note{position:relative;background:#fffafd;color:#b63b79;border-radius:5px;padding:18px 20px;width:min(90vw,470px);box-shadow:0 0 25px #fff5;font-size:clamp(.9rem,3vw,1.1rem);margin:15px 0;transform:rotate(-1deg)}
+.note:after{content:'💗';position:absolute;right:10px;top:8px}
+.gallery{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:min(90vw,420px);margin:8px auto}
+.slot{aspect-ratio:1;background:linear-gradient(135deg,#271124,#120b19);border:1px solid #ff7fbc;display:flex;align-items:center;justify-content:center;color:#ffb8d9;font-size:2rem;overflow:hidden}
+.slot img{width:100%;height:100%;object-fit:cover}
+#final{background:radial-gradient(ellipse at center,#171020,#03040a 75%);overflow:auto}
+.heartgrid{width:min(92vw,450px);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:18px auto 24px;filter:drop-shadow(0 0 14px #ff3e9e88);align-items:center}
+.hphoto{position:relative;width:100%;aspect-ratio:1;background:#2a1025;border:2px solid #ffb0d9;border-radius:7px;box-shadow:0 0 12px #ff3e9e66;overflow:hidden;display:flex;align-items:center;justify-content:center;animation:heartGlow 2.4s ease-in-out infinite alternate;min-width:0}
+.hphoto img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes heartGlow{from{box-shadow:0 0 7px #ff3e9e55}to{box-shadow:0 0 16px #ff3e9eaa}}
+/* Corazón formado por las 15 fotos */
+.hphoto:nth-child(1){grid-column:1 / span 2;grid-row:1}
+.hphoto:nth-child(2){grid-column:5 / span 2;grid-row:1}
+.hphoto:nth-child(3){grid-column:1 / span 2;grid-row:2}
+.hphoto:nth-child(4){grid-column:3 / span 2;grid-row:2}
+.hphoto:nth-child(5){grid-column:5 / span 2;grid-row:2}
+.hphoto:nth-child(6){grid-column:1 / span 2;grid-row:3}
+.hphoto:nth-child(7){grid-column:3 / span 2;grid-row:3}
+.hphoto:nth-child(8){grid-column:5 / span 2;grid-row:3}
+.hphoto:nth-child(9){grid-column:1 / span 2;grid-row:4}
+.hphoto:nth-child(10){grid-column:3 / span 2;grid-row:4}
+.hphoto:nth-child(11){grid-column:5 / span 2;grid-row:4}
+.hphoto:nth-child(12){grid-column:2 / span 2;grid-row:5}
+.hphoto:nth-child(13){grid-column:4 / span 2;grid-row:5}
+.hphoto:nth-child(14){grid-column:2 / span 2;grid-row:6}
+.hphoto:nth-child(15){grid-column:4 / span 2;grid-row:6}
+.upload{display:inline-block;margin:10px;color:#ffc4e2;border:1px dashed #ff75b9;padding:10px 14px;cursor:pointer}input{display:none}
+.envelope-button{background:transparent;border:0;box-shadow:none;padding:10px}.envelope{position:relative;width:min(72vw,300px);height:min(48vw,190px);min-height:145px;perspective:800px;filter:drop-shadow(0 0 22px #ff168455)}.envelope-back{position:absolute;inset:0;background:#a82c70;border:2px solid #ff91c7;border-radius:5px}.letter-paper{position:absolute;left:8%;top:5%;width:84%;height:88%;background:#fff8fc;color:#a72e6d;padding:15px 8px;transition:transform .8s ease;z-index:2;border-radius:3px}.letter-title{font-weight:bold;font-size:clamp(.85rem,3vw,1.1rem)}.letter-lines{font-size:clamp(.7rem,2.7vw,.95rem);line-height:1.7;margin-top:12px}.envelope-flap{position:absolute;inset:0;background:#ff75b8;clip-path:polygon(0 0,100% 0,50% 58%);z-index:4;transform-origin:top;transition:transform .65s ease}.envelope-front{position:absolute;inset:0;background:#e94c9b;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:3}.envelope-heart{position:absolute;z-index:5;left:calc(50% - 14px);top:42%;color:#fff;font-size:28px;text-shadow:0 0 10px #ff1684}.envelope-button.open .envelope-flap{transform:rotateX(180deg);z-index:1}.envelope-button.open .letter-paper{transform:translateY(-65%);z-index:5}.open-note{background:#fff8fc;color:#9e3268;width:min(90vw,480px);max-height:55vh;overflow:auto;border-radius:5px;padding:22px 24px;margin:15px 0;box-shadow:0 0 28px #ffb4dc55;text-align:left;line-height:1.65}.open-note p{color:#9e3268}.open-note p:first-child{text-align:center;font-weight:bold;font-size:1.2rem}
+@media(max-height:650px){.note{margin:8px 0;padding:12px}.gallery{width:min(70vw,350px)}}
+</style></head>
+<body>
+<div id="matrix" aria-hidden="true"></div>
+<section class="screen" id="s0"><div style="color:#ff8ac7;letter-spacing:.18em;font-size:clamp(1.2rem,5vw,2rem);margin-bottom:18px">MI PERSONA FAVORITA</div><div class="word" style="font-size:clamp(1.4rem,6vw,3rem);margin-bottom:24px">MI AMOR 💗</div><button id="start">TOCÁ PARA EMPEZAR</button></section>
+<section class="screen hidden" id="s1"><div class="count" id="count">3</div></section>
+<section class="screen hidden" id="s2"><div class="word" id="word">MI PERSONA FAVORITA</div></section>
+<section class="screen hidden" id="s3"><div class="word">MI AMOR</div><div class="heart">💗</div></section>
+<section class="screen hidden" id="letterScreen"><div class="word" style="font-size:clamp(1.3rem,5vw,2.2rem);margin-bottom:18px">TENÉS UNA CARTITA 💌</div><button id="openLetter" class="envelope-button" aria-label="Abrir la carta"><div class="envelope"><div class="envelope-back"></div><div class="letter-paper"><div class="letter-title">Para mi amor ebbe 💗</div><div class="letter-lines">♡ ♡ ♡<br>Un mensajito hecho<br>especialmente para vos</div></div><div class="envelope-flap"></div><div class="envelope-front"></div><div class="envelope-heart">♥</div></div><span style="display:block;margin-top:18px;color:#ffc4e2;font-size:.9rem">DESLIZÁ EL SOBRE HACIA ARRIBA ⬆</span></button></section>
+<section class="screen hidden" id="letterOpen"><div class="word" style="font-size:clamp(1.3rem,5vw,2.2rem)">UNA CARTA PARA VOS 💗</div><div class="open-note"><p>mi amor mi vida mi bebé hermosa 💗🥹</p><p>no sé ni cómo explicar todo lo que significás para mí pero quería hacerte esta sorpresita para recordarte lo muchísimo que te amo y lo feliz que me hace tenerte en mi vida</p><p>posta amor, hasta las cosas más chiquitas con vos se vuelven especiales. hablar con vos, escucharte, verte sonreír y compartir aunque sea un ratito me cambia el día entero</p><p>quiero que sepas que voy a estar para vos en las buenas y en las malas, para escucharte, acompañarte, hacerte reír cuando se pueda y recordarte lo valiosa que sos cuando tengas un día difícil</p><p>no hace falta que todo sea perfecto para que yo te elija. quiero seguir aprendiendo de vos, cuidando lo nuestro y creando un montón de recuerdos juntos, de esos que después nos hacen sonreír cuando los volvemos a mirar</p><p>gracias por ser vos, por cada mensajito, cada momento y cada detalle que capaz para vos es chiquito pero para mí significa un montón. a veces ocho horas con vos se sienten como quince minutos y aun así me quedo con ganas de más tiempo a tu lado 💗</p><p>te amo muchísimo, amor ebbe. ojalá esta página te saque una sonrisa y te recuerde que sos una parte hermosísima de mi vida</p><p><b>siempre voy a elegirte y voy a poner de mi parte para que sigamos construyendo algo lindo juntos. te amo mi bebé 💗🫶🏻</b></p></div><button id="toPhotos">SEGUIR A LAS FOTOS ✨</button></section>
+<section class="screen hidden" id="space"><div class="stars"></div><div style="position:relative;z-index:1;width:100%"><div class="note">Amor ebbe, sos una de las personas más lindas que llegaron a mi vida 💗</div><p style="color:#ffd1e8;margin:18px auto">Cada recuerdo con vos es especial 💗</p><button id="tofinal">VER LA SORPRESA FINAL</button></div></section>
+<section class="screen hidden" id="final"><div style="position:relative;z-index:1;width:100%;max-height:100%;overflow:auto;padding:8px 0"><div class="word" style="font-size:clamp(1.3rem,5vw,2rem);margin-bottom:4px">MI AMOR 💗</div><p style="margin:4px 0;color:#ffd1e8">Un pedacito de nuestra historia 💗</p><div class="heartgrid" id="heartgrid"><div class="hphoto"><img src="foto1.jpeg" alt="Foto 1 del corazón"></div><div class="hphoto"><img src="foto2.jpeg" alt="Foto 2 del corazón"></div><div class="hphoto"><img src="foto3.jpeg" alt="Foto 3 del corazón"></div><div class="hphoto"><img src="foto4.jpeg" alt="Foto 4 del corazón"></div><div class="hphoto"><img src="foto5.jpeg" alt="Foto 5 del corazón"></div><div class="hphoto"><img src="foto6.jpeg" alt="Foto 6 del corazón"></div><div class="hphoto"><img src="foto7.jpeg" alt="Foto 7 del corazón"></div><div class="hphoto"><img src="foto8.jpeg" alt="Foto 8 del corazón"></div><div class="hphoto"><img src="foto9.jpeg" alt="Foto 9 del corazón"></div><div class="hphoto"><img src="foto10.jpeg" alt="Foto 10 del corazón"></div><div class="hphoto"><img src="foto11.jpeg" alt="Foto 11 del corazón"></div><div class="hphoto"><img src="foto12.jpeg" alt="Foto 12 del corazón"></div><div class="hphoto"><img src="foto13.jpeg" alt="Foto 13 del corazón"></div><div class="hphoto"><img src="foto14.jpeg" alt="Foto 14 del corazón"></div><div class="hphoto"><img src="foto15.jpeg" alt="Foto 15 del corazón"></div></div><p>siempre voy a estar para vos, mi amor 💗🫶🏻</p><button id="restart">VOLVER A VER ✨</button></div></section>
+<script>
+const $=id=>document.getElementById(id);
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden')}
+const matrix=$('matrix');for(let i=0;i<38;i++){let c=document.createElement('div');c.className='codecol';c.style.left=(i*2.8)+'%';c.style.animationDuration=(4+Math.random()*7)+'s';c.style.animationDelay=(-Math.random()*9)+'s';c.textContent=Array.from({length:34},()=>['0','1','♡','/','<','>','♥'][Math.floor(Math.random()*7)]).join('\\n');matrix.appendChild(c)}
+$('start').onclick=()=>{show('s1');let n=3;$('count').textContent=n;let t=setInterval(()=>{n--;if(n>0)$('count').textContent=n;else{clearInterval(t);show('s2');let words=['MI PERSONA FAVORITA','MI AMOR','💗'];let i=0;const next=()=>{if(i<words.length){$('word').textContent=words[i++];setTimeout(next,950)}else{setTimeout(()=>{show('s3');setTimeout(()=>show('letterScreen'),1700)},500)}};next()}},850)};
+let swipeStartY=0,swiping=false,letterOpened=false;const envelopeButton=$('openLetter');
+envelopeButton.addEventListener('pointerdown',e=>{if(letterOpened)return;swipeStartY=e.clientY;swiping=true;envelopeButton.setPointerCapture(e.pointerId)});
+envelopeButton.addEventListener('pointerup',e=>{if(!swiping||letterOpened)return;swiping=false;if(swipeStartY-e.clientY>45){letterOpened=true;envelopeButton.classList.add('open');setTimeout(()=>show('letterOpen'),850)}else{envelopeButton.querySelector('span').textContent='DESLIZÁ UN POQUITO MÁS HACIA ARRIBA ⬆'}});
+envelopeButton.addEventListener('pointercancel',()=>{swiping=false});$('toPhotos').onclick=()=>show('space');$('tofinal').onclick=()=>show('final');$('restart').onclick=()=>location.reload();
+function addImages(inputId,targetId,limit){$(inputId).addEventListener('change',e=>{let files=[...e.target.files].slice(0,limit);let target=$(targetId);target.innerHTML='';files.forEach(f=>{let el=document.createElement('div');el.className=targetId==='gallery'?'slot':'hphoto';let img=document.createElement('img');img.src=URL.createObjectURL(f);img.alt='Foto';el.appendChild(img);target.appendChild(el)})})}
+
+</script></body></html>
